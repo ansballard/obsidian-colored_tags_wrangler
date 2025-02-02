@@ -13,8 +13,9 @@ export class EventHandlerCodeMirror extends EventHandler implements IEventHandle
 	public override async register(populators:IEventHandlerPopulator[]) : Promise<void> {
 		this.plugin.registerEvent(
 			this.plugin.app.workspace.on(
-				'codemirror',
-				async (cm) => {
+				//@ts-ignore
+				"codemirror",
+				async () => {
 					for (const populator of populators) {
 						await populator.CodeMirror();
 					}
